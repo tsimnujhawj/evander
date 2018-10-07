@@ -1,10 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Concert+One|Kaushan+Script);
+
 img {
   width: 100%;
 }
 
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  background: url('./img/brick.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -16,8 +18,31 @@ img {
   padding-top: 80px;
 }
 
+.maintitle {
+  color: black;
+  font-family: 'Kaushan Script', cursive;
+  background-color: whitesmoke;
+  border-radius: 30px;
+} 
+
+.searchskills{
+  font-family: 'Concert One', cursive;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.searchskillsentry{
+  font-family: 'Concert One', cursive;
+}
+
+.btn-size{
+  margin: -3px 0px 0px 10px;
+  font-size: 15px;
+  font-family: 'Concert One', cursive;
+}
+
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;

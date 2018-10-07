@@ -65,7 +65,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            DevConnector
+            HomePage
           </Link>
           <button
             className="navbar-toggler"
@@ -84,9 +84,14 @@ class Navbar extends Component {
                   Developers
                 </Link>
               </li>
+              <Link className="nav-link" to="/">
+                NonProfits
+              </Link>
             </ul>
+            
             {isAuthenticated ? authLinks : guestLinks}
           </div>
+
         </div>
       </nav>
     );
