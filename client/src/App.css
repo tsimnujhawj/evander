@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Concert+One|Kaushan+Script);
+@import url(https://fonts.googleapis.com/css?family=Concert+One|Kaushan+Script|PT+Serif);
 
 img {
   width: 100%;
@@ -33,6 +33,12 @@ img {
 
 .searchskillsentry{
   font-family: 'Concert One', cursive;
+}
+
+.lead{
+  font-family: 'PT Serif', serif;
+  font-size: 25px;
+  color: rgb(32, 30, 30)
 }
 
 .btn-size{
