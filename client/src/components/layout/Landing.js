@@ -18,10 +18,15 @@ class Landing extends Component {
             <div className="row">
               <div className="col-md-12 text-center maintitle">
                 <h1 className="display-3 mb-4">Tech That Cares</h1>
-                <p className="lead">
+                <div className="lead">
+                <p >
                   {' '}
-                  Connecting Developers to Non-Profits and Non-Profits to Developers; Creating a Community to Solve Tech Issues.
+                  Connecting Developers to Non-Profits and Non-Profits to Developers.
                 </p>
+                <p>
+                  Creating a Community to Solve Tech Issues.
+                </p>
+                </div>
                 <hr />
                 <label className="searchskills"> 
                   Search for Skill:
