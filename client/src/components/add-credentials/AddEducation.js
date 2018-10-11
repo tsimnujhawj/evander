@@ -67,14 +67,13 @@ class AddEducation extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <Link to="/dashboard" className="btn btn-light">
-                Go Back
-              </Link>
+
               <h1 className="display-4 text-center">Add Education</h1>
               <p className="lead text-center">
-                Add any school, bootcamp, etc that you have attended
+                Add your school attendance here.
               </p>
               <small className="d-block pb-3">* = required fields</small>
+
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="* School"
@@ -142,6 +141,10 @@ class AddEducation extends Component {
                   className="btn btn-info btn-block mt-4"
                 />
               </form>
+              <br></br>
+              <Link to="/dashboard" className="btn btn-dark">
+                Go Back
+              </Link>
             </div>
           </div>
         </div>
