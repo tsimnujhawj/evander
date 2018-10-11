@@ -1,7 +1,7 @@
 {
-  "name": "devconnector",
-  "version": "1.0.0",
-  "description": "Social network for developers",
+  "name": "connector-exp",
+  "version": "1.0.1",
+  "description": "Network for non-profits and web developers",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "Brad Traversy",
+  "author": "tsimnujhawj pmcgie soltis13",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

@@ -8,30 +8,34 @@ class ProfileItem extends Component {
     const { profile } = this.props;
 
     return (
-      <div className="card card-body bg-light mb-3">
+      <div className="card card-body bg-secondary mb-3">
         <div className="row">
-          <div className="col-2">
+          <div className="col-3">
             <img src={profile.user.avatar} alt="" className="rounded-circle" />
+ 
           </div>
           <div className="col-lg-6 col-md-4 col-8">
-            <h3>{profile.user.name}</h3>
+            {/* User Name */}
+            <h3><b>{profile.user.name}</b></h3>
             <p>
               {profile.status}{' '}
+              {/* User Company Name */}
               {isEmpty(profile.company) ? null : (
                 <span>at {profile.company}</span>
               )}
             </p>
             <p>
+              {/* User location */}
               {isEmpty(profile.location) ? null : (
                 <span>{profile.location}</span>
               )}
             </p>
-            <Link to={`/profile/${profile.handle}`} className="btn btn-info">
+            <Link to={`/profile/${profile.handle}`} className="btn btn-success">
               View Profile
             </Link>
           </div>
-          <div className="col-md-4 d-none d-md-block">
-            <h4>Skill Set</h4>
+          <div className="col-md-3  d-md-block">
+            <h4><b>Skill Set</b></h4>
             <ul className="list-group">
               {profile.skills.slice(0, 4).map((skill, index) => (
                 <li key={index} className="list-group-item">
