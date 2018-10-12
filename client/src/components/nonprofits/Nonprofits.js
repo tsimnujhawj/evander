@@ -1,97 +1,230 @@
-import React from "react";
-import Results from "./Results"
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import TextFieldGroup from '../common/TextFieldGroup';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import InputGroup from '../common/InputGroup';
+import SelectListGroup from '../common/SelectListGroup';
+import { nonProfits } from '../../actions/nonProfitsActions';
+import Results from "./Results";
 
-const Nonprofits = props => (
-    <div>
-  <div id="search-box-wrapper-wide" className="sidebar-version">
-      <form target="_self" action="/nonprofits/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden"/>
-        </form>
-    <h2>Search for a Nonprofit</h2>
-  
-    <div className="search-box">
-      <div className="small-label">Enter a nonprofit's name or city </div>
-        <input type="text" name="q" id="q" value="" maxlength="105" className="text-input" />
+class NonProfits extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name:'',
+      category: '',
+      search: '',
+      errors: {}
+    };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const nonprofitData = {
+      name: this.state.name,
+      category: this.state.category,
+      search: this.state.search,
+      
+    };
+
+    this.props.nonProfits(nonprofitData, this.props.history);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  render() {
+    const { errors, displayNonprofitInputs } = this.state;
+
+    let nonprofitInputs;
+
+    if (displayNonprofitInputs) {
+      nonprofitInputs = (
+        <div>
+          <InputGroup
+            placeholder="Search Non Profit Name"
+            name="Name"
+            icon="fab fa-twitter"
+            value={this.state.name}
+            onChange={this.onChange}
+            error={errors.name}
+          />
+
+          <InputGroup
+            placeholder="Non Profit Location"
+            name="location"
+            icon="fab fa-facebook"
+            value={this.state.location}
+            onChange={this.onChange}
+            error={errors.location}
+          />
+
+          <InputGroup
+            placeholder="Non Profit Category"
+            name="category"
+            icon="fab fa-linkedin"
+            value={this.state.category}
+            onChange={this.onChange}
+            error={errors.category}
+          />
+
+        </div>
+      );
+    }
+
+    // Select options for location
+    const options = [
+      { label: 'Alabama', value: 'AL' },
+      { label: 'Alaska', value: 'AL' },
+      { label: 'Arkansas', value: 'AL' },
+      { label: 'Arizona', value: 'AL' },
+      { label: 'California', value: 'AL' },
+      { label: 'Colorado', value: 'AL' },
+      { label: 'Connecticut', value: 'AL' },
+      { label: 'Delaware', value: 'AL' },
+      { label: 'District of Columbia', value: 'AL' },
+      { label: 'Florida', value: 'AL' },
+      { label: 'Georgia', value: 'AL' },
+      { label: 'Hawaii', value: 'AL' },
+      { label: 'Idaho', value: 'AL' },
+      { label: 'Illinois', value: 'AL' },
+      { label: 'Iowa', value: 'AL' },
+      { label: 'Indiana', value: 'AL' },
+
+      { label: 'Kansas', value: 'AL' },
+      { label: 'Kentucky', value: 'AL' },
+      { label: 'Louisiana', value: 'AL' },
+      { label: 'Maine', value: 'AL' },
+      { label: 'Maryland', value: 'AL' },
+      { label: 'Massachusetts', value: 'AL' },
+      { label: 'Michigan', value: 'AL' },
+      { label: 'Minnesota', value: 'AL' },
+      { label: 'Mississippi', value: 'AL' },
+      { label: 'Missouri', value: 'AL' },
+      { label: 'Montana', value: 'AL' },
+      { label: 'Nebraska', value: 'AL' },
+      { label: 'Nevada', value: 'AL' },
+      { label: 'New Hampshire', value: 'AL' },
+      { label: 'New Jersey', value: 'AL' },
+      { label: 'New Mexico', value: 'AL' },
+
+      { label: 'New York', value: 'AL' },
+      { label: 'North Carolina', value: 'AL' },
+      { label: 'North Dakota', value: 'AL' },
+      { label: 'Ohio', value: 'AL' },
+
+      { label: 'Oklahoma', value: 'OK' },
+      { label: 'Oregon', value: 'OR' },
+      { label: 'Pennsylvania', value: 'PA' },
+      { label: 'Rhode Island', value: 'RI' },
+      { label: 'South Carolina', value: 'SC' },
+      { label: 'South Dakota', value: 'SD' },
+      { label: 'Tennessee', value: 'TN' },
+      { label: 'Texas', value: 'TX' },
+      { label: 'Utah', value: 'UT' },
+      { label: 'Vermont', value: 'VT' },
+      { label: 'Virginia', value: 'VA' },
+      { label: 'Washington', value: 'WA' },
+
+      { label: 'West Virginia', value: 'WV' },
+      { label: 'Wisconsin', value: 'WI' },
+      { label: 'Wyoming', value: 'WY' },
+      { label: 'Puerto Rico', value: 'PR' },
+      { label: 'Palau', value: 'PW' },
+      { label: 'Outside U.S.', value: 'ZZ' },
  
-    </div>
-  
-    <div>
-      <div className="state label-holder">
-        <label for="state">State</label>
-        <select className="state-dropdown" name="state[id]" id="state_id"><option value="">Any State</option>
-  <option value="AL">Alabama</option>
-  <option value="AK">Alaska</option>
-  <option value="AR">Arkansas</option>
-  <option value="AZ">Arizona</option>
-  <option value="CA">California</option>
-  <option value="CO">Colorado</option>
-  <option value="CT">Connecticut</option>
-  <option value="DE">Delaware</option>
-  <option value="DC">District of Columbia</option>
-  <option value="FL">Florida</option>
-  <option value="GA">Georgia</option>
-  <option value="HI">Hawaii</option>
-  <option value="ID">Idaho</option>
-  <option value="IL">Illinois</option>
-  <option value="IA">Iowa</option>
-  <option value="IN">Indiana</option>
-  <option value="KS">Kansas</option>
-  <option value="KY">Kentucky</option>
-  <option value="LA">Louisiana</option>
-  <option value="ME">Maine</option>
-  <option value="MD">Maryland</option>
-  <option value="MA">Massachusetts</option>
-  <option value="MI">Michigan</option>
-  <option value="MN">Minnesota</option>
-  <option value="MS">Mississippi</option>
-  <option value="MO">Missouri</option>
-  <option value="MT">Montana</option>
-  <option value="NE">Nebraska</option>
-  <option value="NV">Nevada</option>
-  <option value="NH">New Hampshire</option>
-  <option value="NJ">New Jersey</option>
-  <option value="NM">New Mexico</option>
-  <option value="NY">New York</option>
-  <option value="NC">North Carolina</option>
-  <option value="ND">North Dakota</option>
-  <option value="OH">Ohio</option>
-  <option value="OK">Oklahoma</option>
-  <option value="OR">Oregon</option>
-  <option value="PA">Pennsylvania</option>
-  <option value="RI">Rhode Island</option>
-  <option value="SC">South Carolina</option>
-  <option value="SD">South Dakota</option>
-  <option value="TN">Tennessee</option>
-  <option value="TX">Texas</option>
-  <option value="UT">Utah</option>
-  <option value="VT">Vermont</option>
-  <option value="VA">Virginia</option>
-  <option value="WA">Washington</option>
-  <option value="WV">West Virginia</option>
-  <option value="WI">Wisconsin</option>
-  <option value="WY">Wyoming</option>
-  <option value="PR">Puerto Rico</option>
-  <option value="PW">Palau</option>
-  <option value="ZZ">Outside U.S.</option></select>
-      </div>
-      <div className="ntee label-holder">
-        <label for="ntee">Major nonprofit categories </label>
-        <select name="ntee[id]" id="ntee_id"><option value="">Any Category</option>
-  <option value="1">Arts, Culture &amp; Humanities</option>
-  <option value="2">Education</option>
-  <option value="3">Environment and Animals</option>
-  <option value="4">Health</option>
-  <option value="5">Human Services</option>
-  <option value="6">International, Foreign Affairs</option>
-  <option value="7">Public, Societal Benefit</option>
-  <option value="8">Religion Related</option>
-  <option value="9">Mutual/Membership Benefit</option>
-  <option value="10">Unknown, UnclassNameified</option></select>
-      </div>
-</div>
-  <Results />
-    </div>
-    </div>
-  )
+    ];
 
+    // Select options for Category
+    const options2 = [
+      { label: 'Arts, Culture &amp; Humanities', value: 1 },
+      { label: 'Education', value: 2 },
+      { label: 'Environment and Animals', value: 3 },
+      { label: 'Health', value: 4 },
+      { label: 'Human Services', value: 5 },
+      { label: 'International, Foreign Affairs', value: 6 },
+      { label: 'Public, Societal Benefit', value: 7 },
+      { label: 'Religion Related', value: 8 },
+      { label: 'Mutual/Membership Benefit', value: 9 },
+      { label: 'Unknown, UnclassNameified', value: 10 },
+    ];
 
-export default Nonprofits;
+    return (
+      <div className="search-nonprofits">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <h1 className="display-4 text-center">Find a Local Non-Profit Today.</h1>
+              <p className="lead text-center">
+                Enter your search criteria below.
+              </p>
+              <small className="d-block pb-3">* = required fields</small>
+              <form onSubmit={this.onSubmit}>
+                <TextFieldGroup
+                  placeholder="Search Non-Profit"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.onChange}
+                  error={errors.name}
+                  info=""
+                />
+                <SelectListGroup
+                  placeholder="Location"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.onChange}
+                  options={options}
+                  error={errors.location}
+                  info="Give us an idea of where you are interested in helping out."
+                />
+                <SelectListGroup
+                  placeholder="Category"
+                  name="category"
+                  value={this.state.category}
+                  onChange={this.onChange}
+                  options={options2}
+                  error={errors.category}
+                  info="Cou"
+                />
+
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn-info btn-block mt-4"
+                />
+              </form>
+              <Results />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+NonProfits.propTypes = {
+  name: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  name: state.name,
+  errors: state.errors
+});
+
+export default connect(mapStateToProps, { nonProfits })(
+  withRouter(NonProfits)
+);
