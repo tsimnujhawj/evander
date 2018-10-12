@@ -48,7 +48,23 @@ if (localStorage.jwtToken) {
   }
 }
 
+
+
 class App extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      nonProfitName: "",
+      nonProfitState: "",
+      nonProfitCategory: ""
+    }
+}
+
+handleNonprofitNameChange = (event) => {
+  this.setState({ nonProfitName: event.target.value });
+}
+
   render() {
     return (
       <Provider store={store}>

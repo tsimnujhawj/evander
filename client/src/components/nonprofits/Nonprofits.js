@@ -2,22 +2,22 @@ import React from "react";
 import Results from "./Results"
 
 const Nonprofits = props => (
-    <div>
+<div>
+
   <div id="search-box-wrapper-wide" className="sidebar-version">
-      <form target="_self" action="/nonprofits/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden"/>
-        </form>
-    <h2>Search for a Nonprofit</h2>
+    <form target="_self" action="/nonprofits/search" acceptCharset="UTF-8" method="get"><input name="utf8" type="hidden"/></form>
+  <h2>Search for a Nonprofit</h2>
   
-    <div className="search-box">
-      <div className="small-label">Enter a nonprofit's name or city </div>
-        <input type="text" name="q" id="q" value="" maxlength="105" className="text-input" />
- 
-    </div>
+  <div className="search-box">
+    <div className="small-label">Enter a nonprofit's name or city </div>
+    <p>{props.nonProfitName}</p>
+      <input type="text" name="q" id="q" value="" maxLength="105" className="text-input" onChange={props.handleNonprofitNameChange}/>
+  </div>
   
-    <div>
-      <div className="state label-holder">
-        <label for="state">State</label>
-        <select className="state-dropdown" name="state[id]" id="state_id"><option value="">Any State</option>
+  <div>
+    <div className="state label-holder">
+      <label htmlFor="state">State</label>
+      <select className="state-dropdown" name="state[id]" id="state_id"><option value="">Any State</option>
   <option value="AL">Alabama</option>
   <option value="AK">Alaska</option>
   <option value="AR">Arkansas</option>
@@ -72,10 +72,11 @@ const Nonprofits = props => (
   <option value="PR">Puerto Rico</option>
   <option value="PW">Palau</option>
   <option value="ZZ">Outside U.S.</option></select>
-      </div>
-      <div className="ntee label-holder">
-        <label for="ntee">Major nonprofit categories </label>
-        <select name="ntee[id]" id="ntee_id"><option value="">Any Category</option>
+  </div>
+
+  <div className="ntee label-holder">
+    <label htmlFor="ntee">Major nonprofit categories </label>
+    <select name="ntee[id]" id="ntee_id"><option value="">Any Category</option>
   <option value="1">Arts, Culture &amp; Humanities</option>
   <option value="2">Education</option>
   <option value="3">Environment and Animals</option>
@@ -86,12 +87,15 @@ const Nonprofits = props => (
   <option value="8">Religion Related</option>
   <option value="9">Mutual/Membership Benefit</option>
   <option value="10">Unknown, UnclassNameified</option></select>
-      </div>
+  </div>
+
+</div>
+<button type="button" className="btn btn-success">Search</button>
 </div>
   <Results />
-    </div>
-    </div>
-  )
+    
+</div>
+)
 
 
 export default Nonprofits;
