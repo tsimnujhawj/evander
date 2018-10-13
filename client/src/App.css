@@ -68,3 +68,60 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+
+#search-box-wrapper-wide {
+  padding: 0 18px 20px;
+  margin-bottom: 10px;
+  background: #E9F0F8;
+  font-family: "graphik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  box-shadow: 0 0 5px #F0F0F0
+}
+#search-box-wrapper-wide h2 {
+  font-size: 2em;
+  font-family: "Tiempos Text", Georgia, serif;
+  font-weight: 600;
+  padding: 20px 0 14px;
+  line-height: 1em;
+  margin: 0
+}
+#search-box-wrapper-wide input[type="text"].text-input {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: 15px;
+  height: 20px;
+  padding: 5px 6px;
+  width: 100%;
+  margin: 5px 0px
+}
+#search-box-wrapper-wide .label-holder {
+  float: left;
+  margin: 5px 10px 0 0;
+  position: relative
+}
+#search-box-wrapper-wide .examples, #search-box-wrapper-wide .advanced-link {
+  font-size: 11px;
+  margin-bottom: 10px;
+  float: left
+}
+#search-box-wrapper-wide .advanced-link {
+  float: right;
+  margin-right: 3px
+}
+#search-box-wrapper-wide.homepage-version label {
+  font-weight: bold;
+  padding-left: 3px
+}
+#search-box-wrapper-wide.sidebar-version h2 {
+  font-size: 1.5em;
+  margin-top: 5px
+}
+#search-box-wrapper-wide.sidebar-version input[type="text"].text-input {
+  display: block;
+  width: 248px;
+  font-size: 12px
+}
+#search-box-wrapper-wide.sidebar-version label {
+  display: none
+}
