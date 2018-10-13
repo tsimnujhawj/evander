@@ -12,7 +12,8 @@ class Landing extends Component {
     super();
     this.state = {
       topicBox: null,
-      profiles: []
+      profiles: [],
+      submitBtn: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,16 +29,39 @@ class Landing extends Component {
 
   handleSubmit() {
     this.props.getProfileBySkill(this.state.topicBox)
+    this.setState({
+      submitBtn: true
+    })
+    
   }
 
   handleChange(event) {
     this.setState({
-      topicBox: event.target.value
+      topicBox: event.target.value,
+      submitBtn: false
     })
+    console.log(this.state.submitBtn);
   }
 
   render() {
-    console.log(this.state)
+    const { profiles, loading } = this.props.profile;
+    let profileItems;
+
+    if (this.state.topicBox != null && this.state.submitBtn === true) {
+
+      if (profiles === null || loading) {
+        profileItems = <Spinner />;
+      } else {
+        if (profiles.length > 0) {
+          profileItems = profiles.map(profile => (
+            <ProfileItem key={profile._id} profile={profile} />
+          ));
+        } else {
+          profileItems = <h4>No profiles found...</h4>;
+        }
+      }
+    }
+
     return (
       <div className="landing">
         <div className="dark-overlay landing-inner text-light">
@@ -60,11 +84,11 @@ class Landing extends Component {
                 </label>
                 <input className="searchskillsentry" type="text" name="name" onChange={this.handleChange}/>
                 <button type="button" className="btn-size btn btn-success" onClick={this.handleSubmit}>Submit</button>
+               
+               
+               
                 <div className = "profileSkills">
-                    {this.state.profile ? this.state.profile.map(result => {
-                      return <div key={result._id}>{result.skill}</div>
-                    
-                    }) : ''}
+                    {profileItems}
                 </div>
               </div>
             </div>

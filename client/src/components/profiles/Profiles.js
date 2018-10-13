@@ -10,6 +10,10 @@ class Profiles extends Component {
     this.props.getProfiles();
   }
 
+  handleSubmit() {
+    this.props.getProfile(this.state.topicBox)
+  }
+
   render() {
     const { profiles, loading } = this.props.profile;
     let profileItems;
