@@ -79,6 +79,33 @@ router.get('/handle/:handle', (req, res) => {
     .catch(err => res.status(404).json(err));
 });
 
+
+// @route   GET api/profile/skills/:skill
+// @desc    Get profile by skill
+// @access  Public
+
+router.get('/skills/:skill', (req, res) => {
+  const errors = {};
+
+  //db.scores.find({ results: { $elemMatch: { $gte: 80, $lt: 85 } } })
+  const skillset = req.params.skill;
+
+  console.log(skillset)
+
+  Profile.find({ skills: {$elemMatch: {$eq: skillset}}})
+    .populate('user', ['name', 'avatar'])
+    .then(profile => {
+      if (!profile) {
+        errors.noprofile = 'There is no profile with this skill';
+        res.status(404).json(errors);
+      }
+
+      res.json(profile);
+    })
+    .catch(err => res.status(404).json(err));
+});
+
+
 // @route   GET api/profile/user/:user_id
 // @desc    Get profile by user ID
 // @access  Public

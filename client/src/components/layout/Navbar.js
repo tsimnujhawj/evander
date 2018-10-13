@@ -17,11 +17,7 @@ class Navbar extends Component {
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/feed">
-            Post Feed
-          </Link>
-        </li>
+
         <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
             Dashboard
@@ -35,10 +31,10 @@ class Navbar extends Component {
           >
             <img
               className="rounded-circle"
-              src={user.avatar}
-              alt={user.name}
+              // src={user.avatar}
+              // alt={user.name}
               style={{ width: '25px', marginRight: '5px' }}
-              title="You must have a Gravatar connected to your email to display an image"
+              // title="You must have a Gravatar connected to your email to display an image"
             />{' '}
             Logout
           </a>
@@ -65,7 +61,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            HomePage
+            Evander
           </Link>
           <button
             className="navbar-toggler"
@@ -84,7 +80,7 @@ class Navbar extends Component {
                   Developers
                 </Link>
               </li>
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/nonprofits">
                 NonProfits
               </Link>
             </ul>
