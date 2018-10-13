@@ -47,6 +47,26 @@ export const getProfileByHandle = handle => dispatch => {
     );
 };
 
+// Get profile by handle
+export const getProfileBySkill = skill => dispatch => {
+  dispatch(setProfileLoading());
+  axios
+    .get(`/api/profile/skills/${skill}`)
+    .then(res => {
+      console.log(res)
+      return dispatch({
+        type: GET_PROFILES,
+        payload: res.data
+      })}
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_PROFILES,
+        payload: null
+      })
+    );
+};
+
 // Create Profile
 export const createProfile = (profileData, history) => dispatch => {
   axios
