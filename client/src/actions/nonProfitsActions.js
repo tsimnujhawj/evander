@@ -8,14 +8,8 @@ import {
 
   //display results
 
-  export const displayResults = () =>{
+  export const nonProfits = () =>{
 
   }
 
 
-  // Results loading
-export const setDisplayResults = () => {
-    return {
-     
-    };
-  };
