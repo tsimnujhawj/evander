@@ -1,6 +1,6 @@
 {
-  "name": "connector-exp",
-  "version": "1.0.1",
+  "name": "developersocialmedia",
+  "version": "1.0.2",
   "description": "Network for non-profits and web developers",
   "main": "server.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "tsimnujhawj pmcgie soltis13",
+  "author": "tsimnujhawj pmcgie soltis13 jagnoor",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -27,5 +27,19 @@
   },
   "devDependencies": {
     "nodemon": "^1.17.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jagnoor/connector-exp.git"
+  },
+  "keywords": [
+    "coapstone",
+    "project",
+    "cohort",
+    "5"
+  ],
+  "bugs": {
+    "url": "https://github.com/jagnoor/connector-exp/issues"
+  },
+  "homepage": "https://github.com/jagnoor/connector-exp#readme"
 }
