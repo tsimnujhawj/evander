@@ -3,7 +3,7 @@ import axios from "axios";
 const API = {
     // Query nonprofit API
     searchNonProfits: function(nonProfitName, nonProfitState, nonProfitCategory) {
-      const queryURL = `https://projects.propublica.org/nonprofits/api/v2/search.json?q=${nonProfitName}&state%5Bid%5D=${nonProfitState}&ntee%5Bid%5D=${nonProfitCategory}`;
+      const queryURL = `https://api.data.charitynavigator.org/v2/Organizations?app_id=625abd8a&app_key=ba146d702594ad52f1454686f5b55c08&search=${nonProfitName}&categoryID=${nonProfitCategory}&state=${nonProfitState}`;
       return axios.get(queryURL);
     }
   };

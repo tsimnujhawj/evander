@@ -33,7 +33,7 @@ handleNonprofitCategoryChange = (event) => {
     event.preventDefault();
     API.searchNonProfits(this.state.nonProfitName, this.state.nonProfitState, this.state.nonProfitCategory)
       .then((res) => {
-        this.setState({ nonProfitRes: res.data.organizations });
+        this.setState({ nonProfitRes: res.data });
         console.log("this.state.nonProfitRes: ", this.state.nonProfitRes);
       });
   }
@@ -41,9 +41,9 @@ handleNonprofitCategoryChange = (event) => {
   renderResults = () => {
     return this.state.nonProfitRes.map(nonProfitOrg => (
       <Results
-        name={nonProfitOrg.name}
-        city={nonProfitOrg.city}
-        state={nonProfitOrg.state}
+        name={nonProfitOrg.charityName}
+        // city={nonProfitOrg.mailingAddress}
+        // state={nonProfitOrg.state}
       />
     ));
   }
