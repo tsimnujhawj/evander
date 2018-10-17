@@ -75,16 +75,28 @@ const Search = props => (
   <div className="ntee label-holder">
     <label htmlFor="ntee">Major nonprofit categories </label>
     <select name="ntee[id]" id="ntee_id" onChange={props.handleNonprofitCategoryChange}><option value="">Any Category</option>
-  <option value="1">Arts, Culture &amp; Humanities</option>
-  <option value="2">Education</option>
-  <option value="3">Environment and Animals</option>
-  <option value="4">Health</option>
-  <option value="5">Human Services</option>
-  <option value="6">International, Foreign Affairs</option>
-  <option value="7">Public, Societal Benefit</option>
-  <option value="8">Religion Related</option>
-  <option value="9">Mutual/Membership Benefit</option>
-  <option value="10">Unknown, UnclassNameified</option></select>
+    <option value="1">Animals</option>
+  <option value="2">Arts, Culture &amp; Humanities</option>
+  <option value="10">Community Development</option>
+  <option value="3">Education</option>
+  <option value="4">Environment</option>
+  <option value="5">Health</option>
+  <option value="8">Human and Civil Rights</option>
+  <option value="6">Human Services</option>
+  <option value="7">International</option>
+  <option value="9">Religion</option>
+  <option value="11">Research and Public Policy</option></select>
+  </div>
+
+  <div className="pageSize label-holder">
+    <label htmlFor="pageSize">Search Result Length</label>
+    <select name="pageSize" onChange={props.handlePageSize}>
+    <option value="">Any</option>
+    <option value="25">25</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+    <option value="150">150</option>
+    </select>
   </div>
 
 </div>

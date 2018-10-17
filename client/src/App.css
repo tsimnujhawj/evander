@@ -127,5 +127,22 @@ img {
 }
 
 .list-group-item {
-  margin: 10px;
+  margin: 20px;
+  padding-bottom: 30px;
+}
+
+#org-name  {
+  font-weight: bold;
+}
+
+.org-header {
+  margin-bottom: 30px;
+}
+
+#find-job-btn {
+  float: right;
+}
+
+.pageSize {
+  /* margin: 15px; */
 }

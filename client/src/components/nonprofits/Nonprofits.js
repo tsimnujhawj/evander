@@ -12,6 +12,7 @@ class Nonprofits extends Component {
       nonProfitName: "",
       nonProfitState: "",
       nonProfitCategory: "",
+      pageSize: "",
       nonProfitRes: []
     }
 }
@@ -28,13 +29,17 @@ handleNonprofitCategoryChange = (event) => {
   this.setState({ nonProfitCategory: event.target.value });
 }
 
+handlePageSize = (event) => {
+  this.setState({ pageSize: event.target.value });
+}
+
   // When the search form submits, perform an api search with user input
   handleFormSubmit = (event) => {
     event.preventDefault();
-    API.searchNonProfits(this.state.nonProfitName, this.state.nonProfitState, this.state.nonProfitCategory)
+    API.searchNonProfits(this.state.nonProfitName, this.state.nonProfitState, this.state.nonProfitCategory, this.state.pageSize)
       .then((res) => {
         this.setState({ nonProfitRes: res.data });
-        console.log("this.state.nonProfitRes: ", this.state.nonProfitRes);
+        console.log("this.state.nonProfitRes: ", this.state);
       });
   }
 
@@ -42,8 +47,9 @@ handleNonprofitCategoryChange = (event) => {
     return this.state.nonProfitRes.map(nonProfitOrg => (
       <Results
         name={nonProfitOrg.charityName}
-        // city={nonProfitOrg.mailingAddress}
-        // state={nonProfitOrg.state}
+        mission={nonProfitOrg.mission}
+        url={nonProfitOrg.websiteURL}
+        tagline={nonProfitOrg.tagLine}
       />
     ));
   }
@@ -56,6 +62,7 @@ handleNonprofitCategoryChange = (event) => {
         handleNonprofitNameChange={this.handleNonprofitNameChange}
         handleNonprofitStateChange={this.handleNonprofitStateChange}
         handleNonprofitCategoryChange={this.handleNonprofitCategoryChange}
+        handlePageSize={this.handlePageSize}
         handleFormSubmit={this.handleFormSubmit}
         />
 
