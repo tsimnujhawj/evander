@@ -5,7 +5,7 @@
 For prerequisites and detailed instructions please read the
 [Installation Instructions]()on the Wiki.    
 [Heroku Hosted Webstie](https://evander.herokuapp.com/)
-[Class Pressentation] (https://docs.google.com/presentation/d/1JLiC8VEfI3IFGhRsLuWTv02OTJz4YJ49OUs85WG9qa8/edit#slide=id.g411324a08c_0_13)
+[Class Pressentation](https://docs.google.com/presentation/d/1JLiC8VEfI3IFGhRsLuWTv02OTJz4YJ49OUs85WG9qa8/edit#slide=id.g411324a08c_0_13/)
 
 
 ## Introduction    
