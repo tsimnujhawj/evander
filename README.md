@@ -43,7 +43,6 @@ Human-centered design is motivated by creating solutions for problems and opport
 
 Further Design decisions and processes can be found in the wiki page Design.   
 
-[Class Presentation](https://docs.google.com/presentation/d/1WETBjyobB8XooJm79EN3AJS7i6SV9ySYxDjj7TuhLko/edit?usp=sharing)
 
 
 ## License   
