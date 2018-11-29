@@ -22,7 +22,13 @@ Communication and coordination between interested parties.
 ### What is the primary goal of the product    
 Demonstration of an online website built on the MERN stack and provide an MVP to later build a local social networking platform for web developers and programmers.   
 
+### Demo
 
+![Landing page](resources/evander_1.png)
+![Profile](resources/evander_2.png)
+![Search](resources/evander_3.png)
+![API Search](resources/evander_4.png)
+![Results](resources/evander_5.png)
 
 ## Our Design Approach    
 
